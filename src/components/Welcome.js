@@ -1,29 +1,24 @@
-import React, {useState} from 'react';
-// import Button from 'react-bootstrap/Button';
+import React from 'react';
 import SignupModal from './popUps/SignupModal';
+import '../welcome.css'
 
 const Welcome = () => {
-    // const {showSignupModal, setShowSignupModal} = useState(false);
 
-    // const handleClick = () => {
-    //     console.log('clicked')
-    //     // setShowSignupModal={() => {
-    //     // }}
-    //     // showSignupModal={false}
-    // };
+// const style = {'background-image': "url('https://img.freepik.com/free-vector/people-facing-each-other-while-texting-concept-illustration_52683-23818.jpg?size=626&ext=jpg&ga=GA1.2.1325641149.1668022357')"};
 
+        
     return (
         <>
-        <div className='container-home'>
-            <div className='tagline'>
-                <h1>WhosNext</h1>
-                <p>The NEXT ONE may be THE ONE.</p>
+        <div className='welcome'>
+            
+            <div className='container-home'>
+                <div className='tagline'>
+                    <h1>WhosNext</h1>
+                    <p>The NEXT ONE may be THE ONE.</p>
+                </div> 
+                <SignupModal />
             </div>
-            <SignupModal />
-            {/* <Button class='start' variant="primary" onclick={handleClick}>{setAuthtoken ? 'Get Started' : 'Signout'}
-            </Button> */}
         </div>
-        
         </>    
     )
 }

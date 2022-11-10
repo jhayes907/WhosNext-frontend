@@ -80,7 +80,9 @@ function App() {
           <Route path="/messages" component={Messages}/>
         </Switch>
       </div>
+      <div>
       <Footer />
+      </div>
     </div>
     </Router>
   );

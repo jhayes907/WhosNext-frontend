@@ -1,35 +1,45 @@
+
 *{
   margin: 0;
 }
 
 body {
+
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   text-align: center;
 }
-.sidebar-container {
-  border: 5px;
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
+section {
+  margin-top: 10em;
 }
+.matches {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .container-home {
   display: flexbox;
   justify-content: space-between;
-  margin-top: 15em;
+  margin-top: 9em;
 }
-h1 {
 
-  font-size: 100px;
+h1 {
+  font-size: 150px;
+  margin-bottom: 20px;
 }
+
 .tagline {
-  font-weight: bold; 
+  font-weight: bold;
+  font-size: 20px; 
 }
 
 .logout-link {
   cursor: pointer;
 }
+
+
 /* Matches */
 
 .matches{
@@ -174,4 +184,5 @@ h1 {
   background-size: cover;
   
 }
+
 

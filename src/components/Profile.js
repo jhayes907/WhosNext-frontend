@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import Image from 'react-bootstrap/Image';
-// import Card from 'react-bootstrap/Card';
+import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import Figure from 'react-bootstrap/Figure';
+
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
-const handleClick = () => {
-    console.log('clicked');
-};
+
 
 const Profile = (props) => {
-   const [profile, setProfile] = useState(props);
+//    const [profile, setProfile] = useState(props);
    const { handleLogout, user } = props;
    const { id, name, email, dob_month, dob_day, dob_year, gender, preference, image, matches, exp } = props.user;
    const dob = `${dob_month}, ${dob_day}, ${dob_year}`;
@@ -32,8 +30,7 @@ const Profile = (props) => {
 
    const userData = user ?
    (<div>
-       <h1>Profile</h1>
-       <img src={image}/>
+       <img src={image} alt="John Wick" />
        <p>ID: {id}</p>
        <p>Name: {name}</p>
        <p>Email: {email}</p>
@@ -54,16 +51,16 @@ const Profile = (props) => {
     // Todo: useEffect 
     const [profileImage, setProfileImage] = useState(props.user.profileImage);
 
-    useEffect(() => {
-        axios.get('')
-        .then(response => {
-            console.log(response.data);
-        })
-        .catch(error => {
-            console.log(error);
-        })
+    // useEffect(() => {
+    //     axios.get('')
+    //     .then(response => {
+    //         console.log(response.data);
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     })
 
-    }, [])
+    // }, [])
 
     const handleImageDelete = (e) => {
         //Todo: handleImageDelete api call
@@ -94,7 +91,7 @@ const Profile = (props) => {
     
         return(
             <div className="profile-image">
-                <img src={props.image} alt="harry styles" />
+                <img src={props.image} alt="Taylot Swift" />
                 <Button onClick={props.onEdit}>Edit</Button>
                 <Button onClick={props.onDelete}>Delete</Button>
             </div>
@@ -104,55 +101,67 @@ const Profile = (props) => {
 
     return (
         <>  
+            <h1>Profile</h1>
             <section className='matches-section'>
                 <div className='matches-container'>
-                    <div className='matches'>
-                    {matches}
-                        <Figure>
-                            <Figure.Image
-                                width={171}
-                                height={180}
-                                alt="171x180"
-                                src=""
-                            />
-                            <Figure.Caption>
-                              
-                            </Figure.Caption>
-                            <Button href="">View Profile</Button>
-                            <Button href="">Send Message</Button>
-                        </Figure>
+                    <div className='matches'>   
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="" />
+                        <Card.Body>
+                            <Card.Title>Match</Card.Title>
+                            <Card.Text>
+                            This will be where the match information will be.
+                            </Card.Text>
+                            <Button variant="primary" href=''>View Profile</Button>
+                            <Button variant="primary" href=''>Send Message</Button>
+                        </Card.Body>
+                    </Card>
+
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="" />
+                        <Card.Body>
+                            <Card.Title>Match</Card.Title>
+                            <Card.Text>
+                            This will be where the match information will be.
+                            </Card.Text>
+                            <Button variant="primary" href=''>View Profile</Button>
+                            <Button variant="primary" href=''>Send Message</Button>
+                        </Card.Body>
+                    </Card> 
+
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="" />
+                        <Card.Body>
+                            <Card.Title>Match</Card.Title>
+                            <Card.Text>
+                            This will be where the match information will be.
+                            </Card.Text>
+                            <Button variant="primary" href=''>View Profile</Button>
+                            <Button variant="primary" href=''>Send Message</Button>
+                        </Card.Body>
+                    </Card>    
                     </div> 
                 </div>
             </section>
-            {/* <div className="text-center pt-4">
-                
-            </div> */}
+            
 
-            <div className='profile-container'>
+            
             <section className="userDataSection">
                 <div className="userData-container">
                     <div className='userData'>
                         {user ? userData : errorDiv()}
                     </div>
+                    <button className='btn btn-primary'>edit</button>
                 </div>
             </section>
     
             <section className='pictureSection'>
-                <div className="profileImage-container">
-                    {/* <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="images/JaredPic.jpg" />
-                        <Card.Body>
-                            <Card.Title>Profile Image</Card.Title>
-                            <Card.Text>
-
-                            </Card.Text>
-                            <Button variant="primary">Remove</Button>
-                        </Card.Body>
-                    </Card> */}
-                </div>    
-                {<ProfileImage onDelete={handleImageDelete} onEdit={handleImageEdit} image={profileImage}/>}
+                <div className="profileImage-container"> 
+                    {<ProfileImage onDelete={handleImageDelete} onEdit={handleImageEdit} image={profileImage}/>}
+                    
+                </div>  
             </section>             
-        </div>
+        
         </>
     );
 }
